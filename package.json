@@ -6,9 +6,8 @@
     "clean": "bsb -clean-world",
     "reformat": "bsrefmt --in-place $(find src -name '*.re' -print) -w 80"
   },
-  "dependencies": {},
   "devDependencies": {
-    "bsb-native": "^5.0.0",
-    "bs-platform-native": "0.0.8"
+    "bs-platform-native": "0.0.12",
+    "bsb-native": "^5.0.3"
   }
 }
