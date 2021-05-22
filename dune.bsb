@@ -1,0 +1,24 @@
+;;;;{BSB GENERATED: NO EDIT
+(subdir ./src
+(rule
+(targets  Main.ast)
+ (deps (:inputs  Main.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Main.cmj Main.cmi Main.cmt Main.js)
+ (deps (:inputs  Main.ast)  (:ast_deps .././src/Main.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/bidirectional-type-checker -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I .    -w a -bs-package-name bidirectional-type-checker -bs-package-output commonjs:./src:.js -o Main.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  Main.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+
+(subdir .melange.eobjs)
+
+(data_only_dirs node_modules .melange.eobjs)
+(alias (name bsb_world))
+;;;;BSB GENERATED: NO EDIT}

@@ -5,6 +5,5 @@
   "entries": [{
     "backend": "native",
     "main-module": "Main"
-  }],
-  "refmt": 3
+  }]
 }

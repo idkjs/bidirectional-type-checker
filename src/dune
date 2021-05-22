@@ -1,0 +1,22 @@
+
+(executable
+ (name Main)
+ (modes byte native))
+
+(rule
+ (alias run_main_bc)
+ (deps Main.bc)
+ (action
+  (run ./Main.bc)))
+
+(rule
+ (alias run_main)
+ (deps Main.exe)
+ (action
+  (run ./Main.exe)))
+
+(rule
+ (alias run_main_js)
+ (deps Main.js)
+ (action
+  (run node ./Main.js)))
